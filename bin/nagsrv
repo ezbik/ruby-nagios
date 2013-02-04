@@ -52,10 +52,13 @@
 # Please open an issue at ruby-nagios.googlecode.com
 # with any queries
 
-require 'nagios'
+$LOAD_PATH << '/usr/src/ruby-nagios/lib'
+
+require "nagios"
+require "nagios/config"
 require 'optparse'
 
-statusfile = "status.log"
+statusfile = Nagios::Config.new.status_file
 listhosts = false
 withservice = []
 listservices = false
